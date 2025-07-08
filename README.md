@@ -3,8 +3,9 @@
 Welcome! This repository contains all course materials, notebooks, assignments, and resources for the course 
 
 **Instructor:** Akram Vasighi
+
 **Textbook:** [AI Engineering: Building Applications with Foundation Models by Chip Huyen (O’Reilly, 2025)](https://www.oreilly.com/library/view/ai-engineering/9781098166312/)  
-**Format:** Hybrid / Online / In-Person  
+
 
 ---
 
@@ -18,7 +19,9 @@ You’ll learn the entire AI engineering lifecycle—from model selection and pr
 ## 🗂️ Repo Structure
 /
 ├── syllabus.md # Full course syllabus
+
 ├── schedule.md # Weekly schedule & modules
+
 ├── lectures/ # Slide decks and lecture notes
 ├── labs/ # Jupyter/Colab notebooks for hands-on labs
 ├── assignments/ # Homework and project templates
@@ -63,16 +66,20 @@ Week 6: Case Studies & Capstone Projects
 
 (Full schedule in schedule.md)
 
+
 📖 Reference
 Main Text: AI Engineering: Building Applications with Foundation Models by Chip Huyen
+
 
 
 🤝 Contributing
 Want to suggest an improvement or contribute material?
 Open an issue or submit a pull request!
 
+
 📫 Contact
 For questions, reach out to vasighizakerATgmailDOTcom or open an issue.
+
 
 Let’s build the next generation of AI apps together! 🚀
 
