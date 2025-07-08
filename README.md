@@ -23,10 +23,15 @@ You’ll learn the entire AI engineering lifecycle—from model selection and pr
 ├── schedule.md # Weekly schedule & modules
 
 ├── lectures/ # Slide decks and lecture notes
+
 ├── labs/ # Jupyter/Colab notebooks for hands-on labs
+
 ├── assignments/ # Homework and project templates
+
 ├── solutions/ # (Instructor-only) Assignment solutions
+
 ├── resources/ # Additional readings, blog links, cheatsheets
+
 └── README.md # This file
 
 
