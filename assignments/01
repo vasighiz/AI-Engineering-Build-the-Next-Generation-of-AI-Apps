@@ -1,3 +1,107 @@
-# Homework and project templates
+# Lab: Build a Retrieval-Augmented Generation (RAG) Chatbot with Haystack
 
-Coming soon ...
+**Objective:**  
+In this lab, you will build a simple chatbot that can answer questions about your documents using Haystack’s retrieval-augmented generation pipeline.
+
+---
+
+## Learning Goals
+
+- Understand the architecture of RAG systems (retriever + generator)
+- Ingest and index documents for retrieval
+- Connect a retriever and a language model (LLM) to answer user questions
+- Optionally, deploy a simple chatbot UI
+
+---
+
+## Instructions
+
+### 1. Setup
+
+- Open the Haystack “First QA System” Colab notebook:  
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/deepset-ai/haystack-tutorials/blob/main/tutorials/01_basic_qa_pipeline.ipynb)
+- Or, clone the [Haystack tutorials repo](https://github.com/deepset-ai/haystack-tutorials) and run the notebook locally.
+
+---
+
+### 2. Load Your Documents
+
+- Use the provided sample document or upload your own `.txt` or `.pdf`.
+- Example (Python):
+
+    ```python
+    from haystack.document_stores import InMemoryDocumentStore
+    document_store = InMemoryDocumentStore()
+    docs = [{"content": "Haystack is a framework for building search systems."}]
+    document_store.write_documents(docs)
+    ```
+
+---
+
+### 3. Create the Retriever
+
+- Use a pretrained embedding retriever (e.g., `sentence-transformers/all-MiniLM-L6-v2`):
+
+    ```python
+    from haystack.nodes import EmbeddingRetriever
+    retriever = EmbeddingRetriever(
+        document_store=document_store,
+        embedding_model="sentence-transformers/all-MiniLM-L6-v2"
+    )
+    ```
+
+---
+
+### 4. Add a Generator (LLM)
+
+- You can use an OpenAI generator or another supported LLM.  
+- Example (OpenAI):
+
+    ```python
+    from haystack.nodes import OpenAIAnswerGenerator
+    generator = OpenAIAnswerGenerator(api_key="YOUR_OPENAI_API_KEY")
+    ```
+
+---
+
+### 5. Build and Run the Pipeline
+
+    ```python
+    from haystack.pipelines import GenerativeQAPipeline
+    pipeline = GenerativeQAPipeline(generator=generator, retriever=retriever)
+
+    query = "What is Haystack?"
+    result = pipeline.run(query=query, params={"Retriever": {"top_k": 2}})
+    print(result["answers"][0].answer)
+    ```
+
+---
+
+### 6. [Optional] Add a Simple Chatbot UI
+
+- Try [Haystack’s Streamlit integration](https://haystack.deepset.ai/tutorials/streamlit) to deploy your chatbot.
+- Not required for this lab, but encouraged if you’re interested in user interfaces.
+
+---
+
+## Submission
+
+- Upload your finished `.ipynb` or `.py` file.
+- Include:
+    - Code that loads/indexes a document and answers at least two user questions
+    - (Optional) Screenshot of your chatbot UI
+
+- Short reflection:  
+    > “How does retrieval improve the accuracy of the answers? What challenge did you encounter and how did you solve it?”
+
+---
+
+## Resources
+
+- [Haystack Tutorials](https://haystack.deepset.ai/tutorials/first-qa-system)
+- [Haystack Documentation](https://docs.haystack.deepset.ai/docs/overview)
+- [Haystack Example Notebooks](https://github.com/deepset-ai/haystack-tutorials)
+
+---
+
+*Happy coding! 🚀*
